@@ -15,6 +15,7 @@ def run_repl():
     anon = 0
 
     print("MiniPy REPL. Examples: 1+2*3  |  def add(x,y): x+y  |  add(40,2)")
+    print("Type 'exit' or 'quit' to exit.")
 
     while True:
         try:
@@ -25,6 +26,9 @@ def run_repl():
 
         if not line.strip():
             continue
+
+        if line.strip().lower() in ("exit", "quit"):
+            break
 
         tree = parse_line(line)
         stmts = tree.stmt()
